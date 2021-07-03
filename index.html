@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>zxf8083's home</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://apps.bdimg.com/libs/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+    	<link rel="stylesheet" href="http://apps.bdimg.com/libs/pure/0.5.0/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="https://apps.bdimg.com/libs/pure/0.5.0/grids-responsive-min.css">
+		<!--<![endif]-->
+
+    <style type="text/css">
+		* {
+		    -webkit-box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    box-sizing: border-box;
+		}
+		a {
+		    text-decoration: none;
+		    color: rgb(61, 146, 201);
+		}
+		a:hover,
+		a:focus {
+		    text-decoration: underline;
+		}
+		.sidebar {
+		    background: rgb(61, 79, 93);
+		    color: #fff;
+		}
+		#layout {
+		    padding: 0;
+		}
+		.header {
+		    text-align: center;
+		    top: auto;
+		    margin: 3em auto;
+		}
+		.brand-title,
+		.brand-tagline {
+		    margin: 0;
+		}
+		.brand-title {
+		    text-transform: uppercase;
+		}
+		.brand-tagline {
+		    font-weight: 300;
+		    color: rgb(176, 202, 219);
+		}
+		.nav-list {
+		    margin: 0;
+		    padding: 0;
+		    list-style: none;
+		}
+		.nav-item {
+		    display: inline-block;
+		    *display: inline;
+		    zoom: 1;
+		}
+		.nav-item a {
+		    background: transparent;
+		    border: 2px solid rgb(176, 202, 219);
+		    color: #fff;
+		    margin-top: 1em;
+		    letter-spacing: 0.05em;
+		    text-transform: uppercase;
+		    font-size: 85%;
+		}
+		.nav-item a:hover,
+		.nav-item a:focus {
+		    border: 2px solid rgb(61, 146, 201);
+		    text-decoration: none;
+		}
+
+		.content-subhead {
+		    text-transform: uppercase;
+		    color: #aaa;
+		    border-bottom: 1px solid #eee;
+		    padding: 0.4em 0;
+		    font-size: 80%;
+		    font-weight: 500;
+		    letter-spacing: 0.1em;
+		}
+
+		.content {
+		    padding: 2em 1em 0;
+		}
+
+		.post {
+		    padding-bottom: 2em;
+		}
+		.post-title {
+		    font-size: 2em;
+		    color: #222;
+		    margin-bottom: 0.2em;
+		}
+		.post-avatar {
+		    border-radius: 50px;
+		    float: right;
+		    margin-left: 1em;
+		}
+		.post-description {
+		    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+		    color: #444;
+		    line-height: 1.8em;
+		}
+		.post-meta {
+		    color: #999;
+		    font-size: 90%;
+		    margin: 0;
+		}
+		.post-footer {
+		    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+		    color: #999;
+		    font-size: 90%;
+		    /*line-height: 1.8em;*/
+		}
+
+		.post-category {
+		    margin: 0 0.1em;
+		    padding: 0.3em 1em;
+		    color: #fff;
+		    background: #999;
+		    font-size: 80%;
+		}
+		    .post-category-green {
+		        background: #5aba59;
+		    }
+		    .post-category-blue {
+		        background: #4d85d1;
+		    }
+		    .post-category-purple {
+		        background: #8156a7;
+		    }
+		    .post-category-red {
+		        background: #df2d4f;
+		    }
+		.post-images {
+		    margin: 1em 0;
+		}
+		.post-image-meta {
+		    margin-top: -3.5em;
+		    margin-left: 1em;
+		    color: #fff;
+		    text-shadow: 0 1px 1px #333;
+		}
+
+
+		@media (min-width: 48em) {
+		    .content {
+		        padding: 2em 3em 0;
+		        margin-left: 25%;
+		    }
+
+		    .header {
+		        margin: 80% 2em 0;
+		        text-align: right;
+		    }
+
+		    .sidebar {
+		        position: fixed;
+		        top: 0;
+		        bottom: 0;
+		    }
+		}
+    </style>
+</head>
+
+
+
+<body>
+
+<template id="article-section">
+	<section class="post">
+		<header class="post-header">
+			<h2 class="post-title">{{data.title}}</h2>
+
+			<p class="post-meta">
+				By <a href="#" class="post-author">{{data.author}}</a> under <a v-bind:class="data.tag_class" href="#">{{data.tag}}</a> 
+			</p>
+		</header>
+
+		<div class="post-description">
+			<p>{{data.content}}</p>
+		</div>
+
+		<div class="post-footer">
+			<p>{{data.time}}</p>
+		</div>
+
+	</section>
+</template>
+	
+	<div id="layout" class="pure-g">
+
+		<div class="sidebar pure-u-1 pure-u-md-1-4">
+			<div class="header">
+				<h1 class="brand-title">zxf8083's Blog</h1>
+				<h2 class="brand-tagline">To record something interesting</h2>
+				<nav class="nav">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a class="pure-button" href="http://purecss.io">Pure</a>
+						</li>
+						<li class="nav-item">
+							<a class="pure-button" href="https://github.com/yahoo/pure/">Github</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="content pure-u-1 pure-u-md-3-4">
+			<div id="article-recent" class="posts">
+				<h1 class="content-subhead">最近</h1>
+				<recentarticle v-for="article in articles" :data="article"></recentarticle>
+
+			</div>
+			<div id="article-history" class="posts">
+				<h1 class="content-subhead">历史</h1>
+				<historyarticle v-for="article in articles" :data="article"></historyarticle>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/vue/1.0.14/vue.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+		  $(function(){
+		  	var data_container = {
+		        articles:[
+
+		        {
+		          title: 'blog更新',
+		          author: 'zxf8083',
+		          time: '2016/08/01 13:27',
+		          tag: 'blog',
+		          tag_class: 'post-category post-category-green',
+		          content: '更新vue.js数据绑定功能,更新时间显示功能,更新标签颜色显示,index.html暂时就这样了,先不修改了. 下一步填后台数据库的坑,坑坑坑坑坑'
+		        },{
+		          title: '搭建记录',
+		          author: 'zxf8083',
+		          time: '2016/08/01 01:32',
+		          tag: 'pure',
+		          tag_class: 'post-category post-category-blue',
+		          content: '这是刚刚搭建的blog,目前只是静态网页状态,支持响应式,使用了pure.css,jquery.js,vue.js,好啦,就酱,睡觉去啦 (๑´ω`๑)'
+		        }
+		        ]
+		      }
+
+		      Vue.component('recentarticle',{
+		        template: '#article-section',
+		        props: ['data']
+		      });
+
+		      var vm_cate_block = new Vue({
+		        el: '#article-recent',
+		        data: data_container
+		      });
+		  });
+
+		  $(function() {
+		    var data_container = {
+		        articles:[{
+		          title: '搭建记录',
+		          author: 'zxf8083',
+		          time: '2016/08/01 01:32',
+		          tag: 'pure',
+		          tag_class: 'post-category post-category-blue',
+		          content: '这是刚刚搭建的blog,目前只是静态网页状态,支持响应式,使用了pure.css,jquery.js,vue.js,好啦,就酱,睡觉去啦 (๑´ω`๑)'
+		        }
+		        ]
+		      }
+
+		      Vue.component('historyarticle',{
+		        template: '#article-section',
+		        props: ['data']
+		      });
+
+		      var vm_cate_block = new Vue({
+		        el: '#article-history',
+		        data: data_container
+		      });
+		  });
+
+		  $(function function_name(argument) {
+		    // body...
+		  })
+		});
+	</script>
+</body>
+</html>		
